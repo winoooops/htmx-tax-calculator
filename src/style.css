@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Custom utilities and components */
+@layer utilities {
+  .text-secondary {
+    @apply text-gray-600;
+  }
+}

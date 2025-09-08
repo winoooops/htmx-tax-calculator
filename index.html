@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTMX Tax Calculator</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div id="app" class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+      <header hx-get="/header.html" hx-trigger="load"></header>
+
+      <main class="w-[80%] mx-auto">
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <!-- Tax Rate -->
+          <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
+            <div id="tax-rate-title" hx-get="/tax-rate.title.html" hx-trigger="load"></div>
+
+            <!-- Tax Rate Item Cards -->
+            <div class="space-y-4">
+              <div id="tax-rate-item-card-1" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
+              <div id="tax-rate-item-card-2" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
+              <div id="tax-rate-item-card-3" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
+              <div id="tax-rate-item-card-4" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
+              <div id="tax-rate-item-card-5" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
+            </div>
+
+            <!-- information -->
+            <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200/50">
+              <h3 class="font-bold text-slate-900 mb-3">
+                <span>How Marginal Tax Works</span>
+              </h3>
+
+              <p class="text-slate-700 leading-relaxed text-sm">
+                <span>
+                  You only pay the higher tax rate on income above each threshold. For example, if you earn $50,000, you
+                  pay 0% on the first $18,200, then 19% on the remaining $31,800.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Tax Calculator -->
+          <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
+            <div id="tax-calculator-title" hx-get="/tax-calculator.title.html" hx-trigger="load"></div>
+            <div id="tax-calculator-input" hx-get="/tax-calulator.input.html" hx-trigger="load"></div>
+            <div id="tax-calculator-field-1" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
+            <div id="tax-calculator-field-2" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
+            <div id="tax-calculator-field-3" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
+          </div>
+
+        </div>
+
+
+        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
+          <div id="footer-title" hx-get="/footer.title.html" hx-trigger="load"></div>
+          <div class="grid md:grid-cols-2 gap-6 text-slate-700">
+            <div id="footer-section-1" hx-get="/footer.section.html" hx-trigger="load"></div>
+            <div id="footer-section-2" hx-get="/footer.section.html" hx-trigger="load"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
