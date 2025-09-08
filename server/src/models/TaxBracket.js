@@ -19,14 +19,14 @@ export default class TaxBracket {
     }
 
     getDisplayRange() {
+
         if(this.startAt === 0) {
             return `$${this.startAt.toLocaleString()}`;
         }
-
         if (this.endAt === null) {
             return `$${this.startAt.toLocaleString()}+`;
         }
-        return `$${this.startAt.toString()} – $${this.endAt.toString()}`;
+        return `$${this.startAt.toLocaleString()} – $${this.endAt.toLocaleString()}`;
     }
 
     calculateMaxTax(prevCumulative = 0) {

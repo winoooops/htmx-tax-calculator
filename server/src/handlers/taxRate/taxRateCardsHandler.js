@@ -9,11 +9,10 @@ const taxRateCardsHandler = async (req, reply) => {
 
   // Use Promise.all to handle async operations properly
   const cardPromises = brackets.map(async (bracket) => {
-    console.log(bracket);
     return TemplateService.renderTemplate("tax-rate-card", {
       taxable_income: bracket.getDisplayRange(),
       tax_rate: bracket.getDisplayRate(),
-      max_tax_amount: `${bracket.getDisplayMaxTax()}`
+      max_tax_amount: bracket.getDisplayMaxTax()
     });
   });
   

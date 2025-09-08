@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+/* Tell Tailwind where to find class names used in server-rendered HTML */
+@source "../../server/src/views/**/*.html";
+@source "../public/**/*.html";
+        
+
 /* Custom utilities and components */
 @layer utilities {
   .text-secondary {
