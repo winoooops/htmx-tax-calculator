@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "years": ["2024", "2025"],
+    "financialYear": "2024-2025",
+    "description": "Calculate your individual income tax for the 2024–2025 financial year"
+  },
+  "taxRatesDisplay": [
+    { "id": 1, "taxRateLabel": "0%",  "maxTaxAmountText": "Up to $18,200" },
+    { "id": 2, "taxRateLabel": "16%", "maxTaxAmountText": "$18,201 – $45,000" },
+    { "id": 3, "taxRateLabel": "30%", "maxTaxAmountText": "$45,001 – $135,000" },
+    { "id": 4, "taxRateLabel": "37%", "maxTaxAmountText": "$135,001 – $190,000" },
+    { "id": 5, "taxRateLabel": "45%", "maxTaxAmountText": "$190,001+" }
+  ],
+  "taxBrackets": [
+    { "id": 1, "startAt": 0,      "endAt": 18200,  "rate": 0.00, "displayRate": "0%"  },
+    { "id": 2, "startAt": 18201,  "endAt": 45000,  "rate": 0.16, "displayRate": "16%" },
+    { "id": 3, "startAt": 45001,  "endAt": 135000, "rate": 0.30, "displayRate": "30%" },
+    { "id": 4, "startAt": 135001, "endAt": 190000, "rate": 0.37, "displayRate": "37%" },
+    { "id": 5, "startAt": 190001, "endAt": null,   "rate": 0.45, "displayRate": "45%" }
+  ],
+  "calculatorFields": [
+    { "id": "estimatedTax",   "name": "Estimated Tax",   "value": "$0"  },
+    { "id": "netIncome",      "name": "Net Income",      "value": "$0"  },
+    { "id": "averageTaxRate", "name": "Average Tax Rate","value": "0%"  }
+  ],
+  "footerSections": [
+    {
+      "title": "How Marginal Tax Works",
+      "content": "You only pay the higher tax rate on income above each threshold."
+    },
+    {
+      "title": "Disclaimer",
+      "content": "This calculator provides general information only and does not constitute financial advice."
+    }
+  ]
+}

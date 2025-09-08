@@ -17,5 +17,7 @@
     "htmx.org": "2.0.6",
     "lucide": "^0.542.0",
     "tailwindcss": "^4.1.13"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

@@ -9,4 +9,12 @@ export default defineConfig({
       htmx: 'htmx.org', // Injects htmx from the 'htmx.org' package
     }),
   ],
+  server: {
+    proxy: {
+      '/api': { 
+        target: 'http://localhost:3000', 
+        changeOrigin: true 
+      }
+    }
+  },
 });

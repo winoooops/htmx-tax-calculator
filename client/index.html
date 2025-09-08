@@ -11,22 +11,16 @@
 <body>
   <div id="app" class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
-      <header hx-get="/header.html" hx-trigger="load"></header>
+      <header hx-get="/api/header.html" hx-trigger="load"></header>
 
       <main class="w-[80%] mx-auto">
         <div class="grid lg:grid-cols-2 gap-8 mb-12">
           <!-- Tax Rate -->
           <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
-            <div id="tax-rate-title" hx-get="/tax-rate.title.html" hx-trigger="load"></div>
+            <div id="tax-rate-title" hx-get="/api/tax-rate-title.html" hx-trigger="load"></div>
 
             <!-- Tax Rate Item Cards -->
-            <div class="space-y-4">
-              <div id="tax-rate-item-card-1" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
-              <div id="tax-rate-item-card-2" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
-              <div id="tax-rate-item-card-3" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
-              <div id="tax-rate-item-card-4" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
-              <div id="tax-rate-item-card-5" hx-get="/tax-rate.motion-card.html" hx-trigger="load"></div>
-            </div>
+            <div id="tax-rate-item-cards" hx-get="/api/tax-rate-item-cards.html" hx-trigger="load"></div>
 
             <!-- information -->
             <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200/50">
@@ -45,21 +39,23 @@
 
           <!-- Tax Calculator -->
           <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
-            <div id="tax-calculator-title" hx-get="/tax-calculator.title.html" hx-trigger="load"></div>
-            <div id="tax-calculator-input" hx-get="/tax-calulator.input.html" hx-trigger="load"></div>
-            <div id="tax-calculator-field-1" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
-            <div id="tax-calculator-field-2" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
-            <div id="tax-calculator-field-3" hx-get="/tax-calculator.field.html" hx-trigger="load"></div>
+            <div id="tax-calculator-title" hx-get="/api/tax-calculator-title.html" hx-trigger="load"></div>
+            <div id="tax-calculator-input" hx-get="/api/tax-calculator-input.html" hx-trigger="load"></div>
+            <div class="space-y-4">
+              <div id="tax-calculator-field-1" hx-get="/api/tax-calculator-field.html?id=estimatedTax" hx-trigger="load"></div>
+              <div id="tax-calculator-field-2" hx-get="/api/tax-calculator-field.html?id=netIncome" hx-trigger="load"></div>
+              <div id="tax-calculator-field-3" hx-get="/api/tax-calculator-field.html?id=averageTaxRate" hx-trigger="load"></div>
+            </div>
           </div>
 
         </div>
 
 
         <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
-          <div id="footer-title" hx-get="/footer.title.html" hx-trigger="load"></div>
+          <div id="footer-title" hx-get="/api/footer-title.html" hx-trigger="load"></div>
           <div class="grid md:grid-cols-2 gap-6 text-slate-700">
-            <div id="footer-section-1" hx-get="/footer.section.html" hx-trigger="load"></div>
-            <div id="footer-section-2" hx-get="/footer.section.html" hx-trigger="load"></div>
+            <div id="footer-section-1" hx-get="/api/footer-section.html?id=0" hx-trigger="load"></div>
+            <div id="footer-section-2" hx-get="/api/footer-section.html?id=1" hx-trigger="load"></div>
           </div>
         </div>
       </main>
