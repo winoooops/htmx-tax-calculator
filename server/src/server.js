@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
+import formbody from "@fastify/formbody";
 
 import getHeartbeatsHandler from "./handlers/health/getHeartbeatsHandler.js";
 import getHeaderHandler from "./handlers/meta/getHeaderHandler.js";
@@ -7,9 +8,11 @@ import getTaxRateTitleHandler from "./handlers/taxRate/getTaxRateTitleHandler.js
 import getCalculatorTitleHandler from "./handlers/calculator/getCalculatorTitleHandler.js";
 import getCalculatorInputHandler from "./handlers/calculator/getCalculatorInputHandler.js";
 import getCalculatorFieldHandler from "./handlers/calculator/getCalculatorFieldHandler.js";
+import getCalculatorFieldsHandler from "./handlers/calculator/getCalculatorFieldsHandler.js";
 import getFooterTitleHandler from "./handlers/footer/getFooterTitleHandler.js";
 import getFooterSectionHandler from "./handlers/footer/getFooterSectionHandler.js";
 import getTaxRateCardsHandler from "./handlers/taxRate/getTaxRateCardsHandler.js";
+import postCalculateTaxHandler from "./handlers/calculator/postCalculateTaxHandler.js";
 import Store from "./data/store.js";
 
 const fastify = Fastify({
@@ -17,6 +20,7 @@ const fastify = Fastify({
 });
 
 await fastify.register(cors, { origin: true });
+await fastify.register(formbody);
 
 // Health check
 fastify.get("/", getHeartbeatsHandler);
@@ -37,6 +41,8 @@ fastify.get("/api/tax-rate-item-cards.html", getTaxRateCardsHandler);
 fastify.get("/api/tax-calculator-title.html", getCalculatorTitleHandler);
 fastify.get("/api/tax-calculator-input.html", getCalculatorInputHandler);
 fastify.get("/api/tax-calculator-field.html", getCalculatorFieldHandler);
+fastify.get("/api/tax-calculator-fields.html", getCalculatorFieldsHandler);
+fastify.post("/api/calculate-tax", postCalculateTaxHandler);
 
 // Footer routes
 fastify.get("/api/footer-title.html", getFooterTitleHandler);

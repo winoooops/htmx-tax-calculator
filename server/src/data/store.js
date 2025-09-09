@@ -9,7 +9,7 @@ const DATA_PATH = path.join(__dirname, "data.json");
 
 export class Store {
     static instance = null;
-    
+
     constructor() {
         this.taxPlan = null;
     }
@@ -42,6 +42,10 @@ export class Store {
 
     getCalculatorFieldById(id) {
         return this.taxPlan?.getCalculatorFieldById(id);
+    }
+
+    getCalculatorFields() {
+        return this.taxPlan?.getCalculatorFields() || [];
     }
 
     getFooterSectionByIndex(index) {
