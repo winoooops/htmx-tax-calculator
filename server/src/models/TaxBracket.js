@@ -2,25 +2,25 @@ import { taxCalculator } from "../utils/taxCalculator.js";
 
 export default class TaxBracket {
     static createBracket(info) {
-        return new TaxBracket(info.id, info.startAt, info.endAt, info.rate, info.displayRate);
-    } 
+        return new TaxBracket(info.id, info.startAt, info.endAt, info.rate, info.color);
+    }
 
-    constructor(id, startAt, endAt, rate, displayRate) {
+    constructor(id, startAt, endAt, rate, color) {
         this.id = id;
         this.startAt = startAt;
         this.endAt = endAt;
         this.rate = rate;
-        this.displayRate = displayRate;
+        this.color = color;
         this.maxTax = 0; // Will be calculated later
     }
 
     getDisplayRate() {
-        return this.displayRate || (this.rate * 100 + "%");
+        return this.rate * 100 + "%";
     }
 
     getDisplayRange() {
 
-        if(this.startAt === 0) {
+        if (this.startAt === 0) {
             return `$${this.startAt.toLocaleString()}`;
         }
         if (this.endAt === null) {
@@ -31,7 +31,9 @@ export default class TaxBracket {
 
     calculateMaxTax(prevCumulative = 0) {
         if (this.endAt === null) {
-            this.maxTax = prevCumulative; // Top bracket has no upper limit
+            // For the top bracket, calculate tax from startAt to a reasonable upper limit
+            // or just return the previous cumulative tax as the "max tax" for display
+            this.maxTax = prevCumulative;
             return this.maxTax;
         }
         this.maxTax = taxCalculator(this.startAt, this.endAt, this.rate, prevCumulative);
@@ -39,6 +41,12 @@ export default class TaxBracket {
     }
 
     getDisplayMaxTax() {
+        if (this.rate === 0) {
+            return "No tax payable";
+        }
+        if (this.endAt === null) {
+            return `Plus ${Math.round(this.rate * 100)}% on excess`;
+        }
         return `$${Math.round(this.maxTax).toLocaleString()}`;
     }
 }

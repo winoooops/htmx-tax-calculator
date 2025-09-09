@@ -1,27 +1,76 @@
 {
   "meta": {
-    "years": ["2024", "2025"],
+    "years": [
+      "2024",
+      "2025"
+    ],
     "financialYear": "2024-2025",
     "description": "Calculate your individual income tax for the 2024–2025 financial year"
   },
-  "taxRatesDisplay": [
-    { "id": 1, "taxRateLabel": "0%",  "maxTaxAmountText": "Up to $18,200" },
-    { "id": 2, "taxRateLabel": "16%", "maxTaxAmountText": "$18,201 – $45,000" },
-    { "id": 3, "taxRateLabel": "30%", "maxTaxAmountText": "$45,001 – $135,000" },
-    { "id": 4, "taxRateLabel": "37%", "maxTaxAmountText": "$135,001 – $190,000" },
-    { "id": 5, "taxRateLabel": "45%", "maxTaxAmountText": "$190,001+" }
-  ],
   "taxBrackets": [
-    { "id": 1, "startAt": 0,      "endAt": 18200,  "rate": 0.00, "displayRate": "0%"  },
-    { "id": 2, "startAt": 18201,  "endAt": 45000,  "rate": 0.16, "displayRate": "16%" },
-    { "id": 3, "startAt": 45001,  "endAt": 135000, "rate": 0.30, "displayRate": "30%" },
-    { "id": 4, "startAt": 135001, "endAt": 190000, "rate": 0.37, "displayRate": "37%" },
-    { "id": 5, "startAt": 190001, "endAt": null,   "rate": 0.45, "displayRate": "45%" }
+    {
+      "id": 1,
+      "startAt": 0,
+      "endAt": 18200,
+      "rate": 0.00,
+      "color": "green",
+      "gradientTo": "emerald"
+    },
+    {
+      "id": 2,
+      "startAt": 18201,
+      "endAt": 45000,
+      "rate": 0.19,
+      "color": "blue",
+      "gradientTo": "indigo"
+    },
+    {
+      "id": 3,
+      "startAt": 45001,
+      "endAt": 120000,
+      "rate": 0.325,
+      "color": "orange",
+      "gradientTo": "amber"
+    },
+    {
+      "id": 4,
+      "startAt": 120001,
+      "endAt": 180000,
+      "rate": 0.37,
+      "color": "red",
+      "gradientTo": "rose"
+    },
+    {
+      "id": 5,
+      "startAt": 180001,
+      "endAt": null,
+      "rate": 0.45,
+      "color": "purple",
+      "gradientTo": "violet"
+    }
   ],
   "calculatorFields": [
-    { "id": "estimatedTax",   "name": "Estimated Tax",   "value": "$0"  },
-    { "id": "netIncome",      "name": "Net Income",      "value": "$0"  },
-    { "id": "averageTaxRate", "name": "Average Tax Rate","value": "0%"  }
+    {
+      "id": "estimatedTax",
+      "name": "Estimated Tax",
+      "value": "$0",
+      "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide\"><rect width=\"16\" height=\"20\" x=\"4\" y=\"2\" rx=\"2\" /><line x1=\"8\" x2=\"16\" y1=\"6\" y2=\"6\" /><line x1=\"16\" x2=\"16\" y1=\"14\" y2=\"18\" /><path d=\"M16 10h.01\" /><path d=\"M12 10h.01\" /><path d=\"M8 10h.01\" /><path d=\"M12 14h.01\" /><path d=\"M8 14h.01\" /><path d=\"M12 18h.01\" /><path d=\"M8 18h.01\" /></svg>",
+      "icon_bg": "red"
+    },
+    {
+      "id": "netIncome",
+      "name": "Net Income",
+      "value": "$0",
+      "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide\"><polyline points=\"22,17 13.5,8.5 8.5,13.5 2,7\" /><polyline points=\"16,17 22,17 22,11\" /></svg>",
+      "icon_bg": "green"
+    },
+    {
+      "id": "averageTaxRate",
+      "name": "Average Tax Rate",
+      "value": "0%",
+      "icon_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide\"><line x1=\"19\" y1=\"5\" x2=\"5\" y2=\"19\" /><circle cx=\"6.5\" cy=\"6.5\" r=\"2.5\" /><circle cx=\"17.5\" cy=\"17.5\" r=\"2.5\" /></svg>",
+      "icon_bg": "blue"
+    }
   ],
   "footerSections": [
     {

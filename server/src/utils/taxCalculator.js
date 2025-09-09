@@ -1,12 +1,14 @@
 export const taxCalculator = (min, max, rate, prev) => {
-  const current = prev + (max - min) * rate;
-  prev = current;
-  return current;
+  // Calculate tax for this bracket: (max - min) * rate
+  const bracketTax = (max - min) * rate;
+  // Add to previous cumulative tax
+  const cumulativeTax = prev + bracketTax;
+  return cumulativeTax;
 }
 
 export const getTaxBracket = (taxBracket = []) => {
-  if(taxBracket.length === 0) return [];
-  
+  if (taxBracket.length === 0) return [];
+
   let cumulativeAmount = 0;
 
   return taxBracket.map((bracket) => {
@@ -14,7 +16,7 @@ export const getTaxBracket = (taxBracket = []) => {
     cumulativeAmount = maxTax; // Update cumulative for next iteration
     return {
       ...bracket,
-      maxTax: Math.round(maxTax)
+      maxTax: Math.ceil(maxTax)
     };
   });
 }

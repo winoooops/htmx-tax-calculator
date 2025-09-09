@@ -3,7 +3,34 @@
 /* Tell Tailwind where to find class names used in server-rendered HTML */
 @source "../../server/src/views/**/*.html";
 @source "../public/**/*.html";
-        
+
+/* Include all color variants for backgrounds */
+@source inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-green-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-blue-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-yellow-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-purple-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-indigo-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-orange-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-amber-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-cyan-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-emerald-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-pink-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-violet-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-slate-{50,{100..900..100},950}");
+@source inline("{hover:,focus:,}bg-gray-{50,{100..900..100},950}");
+
+/* Include gradient from/to classes */
+@source inline("from-{red,green,blue,yellow,purple,indigo,orange,amber,cyan,emerald,pink,violet,slate,gray}-{50,{100..900..100},950}");
+@source inline("to-{red,green,blue,yellow,purple,indigo,orange,amber,cyan,emerald,pink,violet,slate,gray}-{50,{100..900..100},950}");
+
+/* Include text colors */
+@source inline("text-{red,green,blue,yellow,purple,indigo,orange,amber,cyan,emerald,pink,violet,slate,gray}-{50,{100..900..100},950}");
+@source inline("text-white");
+
+/* Include border colors */
+@source inline("border-{red,green,blue,yellow,purple,indigo,orange,amber,cyan,emerald,pink,violet,slate,gray}-{50,{100..900..100},950}");
+@source inline("border-white");
 
 /* Custom utilities and components */
 @layer utilities {

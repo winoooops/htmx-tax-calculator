@@ -2,7 +2,7 @@ import Store from "../../data/store.js";
 import { TemplateService } from "../../services/templateService.js";
 
 const taxRateCardsHandler = async (req, reply) => {
-  const store = await Store.getInstance(); 
+  const store = await Store.getInstance();
   const brackets = store.getBrackets();
 
   let html = `<div class="space-y-4">`;
@@ -12,10 +12,12 @@ const taxRateCardsHandler = async (req, reply) => {
     return TemplateService.renderTemplate("tax-rate-card", {
       taxable_income: bracket.getDisplayRange(),
       tax_rate: bracket.getDisplayRate(),
-      max_tax_amount: bracket.getDisplayMaxTax()
+      max_tax_amount: bracket.getDisplayMaxTax(),
+      color: bracket.color,
+      gradientTo: bracket.gradientTo
     });
   });
-  
+
   const cards = await Promise.all(cardPromises);
   html += cards.join('\n');
   html += `</div>`;
