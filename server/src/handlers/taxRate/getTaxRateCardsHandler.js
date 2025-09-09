@@ -1,7 +1,7 @@
 import Store from "../../data/store.js";
 import { TemplateService } from "../../services/templateService.js";
 
-const taxRateCardsHandler = async (req, reply) => {
+const getTaxRateCardsHandler = async (req, reply) => {
   const store = await Store.getInstance();
   const brackets = store.getBrackets();
 
@@ -25,4 +25,4 @@ const taxRateCardsHandler = async (req, reply) => {
   return TemplateService.htmlResponse(reply, html);
 };
 
-export default taxRateCardsHandler;
+export default getTaxRateCardsHandler;

@@ -1,10 +1,10 @@
 import { TemplateService } from "../../services/templateService.js";
 import Store from "../../data/store.js";
 
-const headerHandler = async (req, reply) => {
+const getHeaderHandler = async (req, reply) => {
   const store = await Store.getInstance();
   const taxPlan = store.getTaxPlan();
-  
+
   const html = await TemplateService.renderTemplate("header", {
     financial_year: taxPlan.getFinancialYear()
   });
@@ -12,4 +12,4 @@ const headerHandler = async (req, reply) => {
   return TemplateService.htmlResponse(reply, html);
 };
 
-export default headerHandler;
+export default getHeaderHandler;

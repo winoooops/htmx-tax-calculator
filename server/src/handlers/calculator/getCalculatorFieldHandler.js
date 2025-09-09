@@ -1,7 +1,7 @@
 import { TemplateService } from "../../services/templateService.js";
 import Store from "../../data/store.js";
 
-const calculatorFieldHandler = async (req, reply) => {
+const getCalculatorFieldHandler = async (req, reply) => {
   const id = String(req.query.id ?? "estimatedTax");
   const store = await Store.getInstance();
   const field = store.getCalculatorFieldById(id);
@@ -20,4 +20,4 @@ const calculatorFieldHandler = async (req, reply) => {
   return TemplateService.htmlResponse(reply, html);
 };
 
-export default calculatorFieldHandler;
+export default getCalculatorFieldHandler;

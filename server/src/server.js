@@ -1,15 +1,15 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 
-import heartbeatsHandler from "./handlers/health/heartbeatsHandler.js";
-import headerHandler from "./handlers/meta/headerHandler.js";
-import taxRateTitleHandler from "./handlers/taxRate/taxRateTitleHandler.js";
-import calculatorTitleHandler from "./handlers/calculator/calculatorTitleHandler.js";
-import calculatorInputHandler from "./handlers/calculator/calculatorInputHandler.js";
-import calculatorFieldHandler from "./handlers/calculator/calculatorFieldHandler.js";
-import footerTitleHandler from "./handlers/footer/footerTitleHandler.js";
-import footerSectionHandler from "./handlers/footer/footerSectionHandler.js";
-import taxRateCardsHandler from "./handlers/taxRate/taxRateCardsHandler.js";
+import getHeartbeatsHandler from "./handlers/health/getHeartbeatsHandler.js";
+import getHeaderHandler from "./handlers/meta/getHeaderHandler.js";
+import getTaxRateTitleHandler from "./handlers/taxRate/getTaxRateTitleHandler.js";
+import getCalculatorTitleHandler from "./handlers/calculator/getCalculatorTitleHandler.js";
+import getCalculatorInputHandler from "./handlers/calculator/getCalculatorInputHandler.js";
+import getCalculatorFieldHandler from "./handlers/calculator/getCalculatorFieldHandler.js";
+import getFooterTitleHandler from "./handlers/footer/getFooterTitleHandler.js";
+import getFooterSectionHandler from "./handlers/footer/getFooterSectionHandler.js";
+import getTaxRateCardsHandler from "./handlers/taxRate/getTaxRateCardsHandler.js";
 import Store from "./data/store.js";
 
 const fastify = Fastify({
@@ -19,7 +19,7 @@ const fastify = Fastify({
 await fastify.register(cors, { origin: true });
 
 // Health check
-fastify.get("/", heartbeatsHandler);
+fastify.get("/", getHeartbeatsHandler);
 
 fastify.get("/api/taxPlan", async (req, reply) => {
   const store = await Store.getInstance();
@@ -27,24 +27,24 @@ fastify.get("/api/taxPlan", async (req, reply) => {
 })
 
 // Meta routes
-fastify.get("/api/header.html", headerHandler);
+fastify.get("/api/header.html", getHeaderHandler);
 
 // Tax Rate routes
-fastify.get("/api/tax-rate-title.html", taxRateTitleHandler);
-fastify.get("/api/tax-rate-item-cards.html", taxRateCardsHandler);
+fastify.get("/api/tax-rate-title.html", getTaxRateTitleHandler);
+fastify.get("/api/tax-rate-item-cards.html", getTaxRateCardsHandler);
 
 // Tax Calculator routes
-fastify.get("/api/tax-calculator-title.html", calculatorTitleHandler);
-fastify.get("/api/tax-calculator-input.html", calculatorInputHandler);
-fastify.get("/api/tax-calculator-field.html", calculatorFieldHandler);
+fastify.get("/api/tax-calculator-title.html", getCalculatorTitleHandler);
+fastify.get("/api/tax-calculator-input.html", getCalculatorInputHandler);
+fastify.get("/api/tax-calculator-field.html", getCalculatorFieldHandler);
 
 // Footer routes
-fastify.get("/api/footer-title.html", footerTitleHandler);
-fastify.get("/api/footer-section.html", footerSectionHandler);
+fastify.get("/api/footer-title.html", getFooterTitleHandler);
+fastify.get("/api/footer-section.html", getFooterSectionHandler);
 
 
 fastify.listen({ port: 3000 }, (err, address) => {
-  if(err) {
+  if (err) {
     fastify.log.error(err);
     process.exit(1);
   }
