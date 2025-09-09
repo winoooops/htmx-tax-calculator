@@ -35,6 +35,9 @@
 /* Include margin top */
 @source inline("mt-{0,{1..9}}");
 
+/* Include animations */
+@source inline("animate-{pulse}");
+
 /* Custom utilities and components */
 @layer utilities {
   .text-secondary {

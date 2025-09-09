@@ -19,10 +19,6 @@ export default class TaxBracket {
     }
 
     getDisplayRange() {
-
-        if (this.startAt === 0) {
-            return `$${this.startAt.toLocaleString()}`;
-        }
         if (this.endAt === null) {
             return `$${this.startAt.toLocaleString()}+`;
         }
