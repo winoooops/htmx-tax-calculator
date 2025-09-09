@@ -12,7 +12,7 @@
   <div id="app" class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
       <!-- header -->
-      <header hx-get="/api/header.html" hx-trigger="load">
+      <header hx-get="%VITE_API_BASE%/api/header.html" hx-trigger="load">
         <div class="animate-pulse flex-col text-center mb-12">
           <div class="flex justify-center items-center gap-3 mb-4">
             <div class="w-12 h-12 bg-slate-200 rounded-2xl"></div>
@@ -26,10 +26,10 @@
         <div class="grid lg:grid-cols-2 gap-8 mb-12">
           <!-- Tax Rate -->
           <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
-            <div id="tax-rate-title" hx-get="/api/tax-rate-title.html" hx-trigger="load"></div>
+            <div id="tax-rate-title" hx-get="%VITE_API_BASE%/api/tax-rate-title.html" hx-trigger="load"></div>
 
             <!-- Tax Rate Item Cards -->
-            <div id="tax-rate-item-cards" hx-get="/api/tax-rate-item-cards.html" hx-trigger="load"
+            <div id="tax-rate-item-cards" hx-get="%VITE_API_BASE%/api/tax-rate-item-cards.html" hx-trigger="load"
               hx-indicator="#loading-indicator-tax-rate-item-cards">
               <div id="loading-indicator-tax-rate-item-cards" class="htmx-indicator">
                 <div class="flex justify-center py-4">
@@ -60,8 +60,8 @@
 
           <!-- Tax Calculator -->
           <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 h-fit">
-            <div id="tax-calculator-title" hx-get="/api/tax-calculator-title.html" hx-trigger="load"></div>
-            <div id="tax-calculator-input" hx-get="/api/tax-calculator-input.html" hx-trigger="load"></div>
+            <div id="tax-calculator-title" hx-get="%VITE_API_BASE%/api/tax-calculator-title.html" hx-trigger="load"></div>
+            <div id="tax-calculator-input" hx-get="%VITE_API_BASE%/api/tax-calculator-input.html" hx-trigger="load"></div>
 
             <!-- Loading indicator -->
             <div id="loading-indicator" class="htmx-indicator">
@@ -71,7 +71,7 @@
             </div>
 
             <!-- Calculator Results -->
-            <div id="calculator-results" hx-get="/api/tax-calculator-fields.html" hx-trigger="load"
+            <div id="calculator-results" hx-get="%VITE_API_BASE%/api/tax-calculator-fields.html" hx-trigger="load"
               hx-indicator="#loading-indicator">
               <div class="animate-pulse space-y-4">
                 <div class="h-20 bg-slate-200 rounded-2xl"></div>
@@ -85,10 +85,10 @@
 
 
         <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
-          <div id="footer-title" hx-get="/api/footer-title.html" hx-trigger="load"></div>
+          <div id="footer-title" hx-get="%VITE_API_BASE%/api/footer-title.html" hx-trigger="load"></div>
           <div class="grid md:grid-cols-2 gap-6 text-slate-700">
-            <div id="footer-section-1" hx-get="/api/footer-section.html?id=0" hx-trigger="load"></div>
-            <div id="footer-section-2" hx-get="/api/footer-section.html?id=1" hx-trigger="load"></div>
+            <div id="footer-section-1" hx-get="%VITE_API_BASE%/api/footer-section.html?id=0" hx-trigger="load"></div>
+            <div id="footer-section-2" hx-get="%VITE_API_BASE%/api/footer-section.html?id=1" hx-trigger="load"></div>
           </div>
         </div>
       </main>
